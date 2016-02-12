@@ -8,13 +8,15 @@ import React, {
   TouchableHighlight,
   View
 } from 'react-native';
-
 import Speech from 'react-native-speech';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
+import generate_note from './vino/generator.js';
+
+
 var SAMPLE = [
   'Dark and mysterious but big and plump. Resembles a seedless watermelon.',
-  'Clean and morally superior. Spews salt and brackish pineapple.'
+  'Clean and morally superior. Spews salt and pineapple.'
 ];
 
 class Vinobot extends Component {
