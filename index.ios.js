@@ -3,6 +3,7 @@ import React, {
   ActionSheetIOS,
   AppRegistry,
   Component,
+  NavigatorIOS,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -19,7 +20,8 @@ var SAMPLE = [
   'Clean and morally superior. Spews salt and pineapple.'
 ];
 
-class Vinobot extends Component {
+
+class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,15 +69,21 @@ class Vinobot extends Component {
           </Text>
         </View>
         <View style={styles.footer}>
-          <TouchableHighlight style={styles.btn}
+          <TouchableHighlight
+            style={styles.btn}
+            underlayColor='#e2070c'
             onPress={this.onSpeakPress.bind(this)}>
             <Icon style={styles.btnInner} name="play" size={40} />
           </TouchableHighlight>
-          <TouchableHighlight style={styles.btn}
+          <TouchableHighlight
+            style={styles.btn}
+            underlayColor='#e2070c'
             onPress={this.showShareActionSheet.bind(this)}>
             <Icon style={styles.btnInner} name="share-apple" size={40} />
           </TouchableHighlight>
-          <TouchableHighlight style={styles.btn}
+          <TouchableHighlight
+            style={styles.btn}
+            underlayColor='#e2070c'
             onPress={this.onBtnPress.bind(this)}>
             <Icon style={styles.btnInner} name="refresh" size={40} />
           </TouchableHighlight>
@@ -85,6 +93,49 @@ class Vinobot extends Component {
   }
 }
 
+
+class AboutPage extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.body}>
+          <Text style={styles.bigText}>
+            FILL IN
+          </Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+class Vinobot extends Component {
+  render() {
+    return (
+      <NavigatorIOS
+        ref="nav"
+        style={{flex: 1}}
+        tintColor="#333"
+        titleTextColor="#333"
+        translucent={true}
+        initialRoute={{
+          component: MainPage,
+          title: 'Vinobot',
+          rightButtonTitle: '?',
+          backButtonTitle: 'Back',
+          onRightButtonPress: () => {
+            this.refs.nav.push({
+                component: AboutPage,
+                title: 'About',
+            });
+          },
+        }}
+      />
+    );
+  }
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -92,19 +143,22 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    paddingTop: 30, 
-    backgroundColor: '#FF3366',
+    paddingTop: 90,
+    backgroundColor: '#f93c40',
   },
   bigText: {
-    margin: 10,
+    marginTop: 0,
+    padding: 10,
     fontSize: 50,
     color: '#fff',
     textAlign: 'center',
   },
   footer: {
     flexDirection: 'row',
-    backgroundColor: '#333',
     alignItems: 'center',
+    backgroundColor: '#f93c40',
+    borderTopWidth: 1,
+    borderTopColor: '#e2070c',
   },
   btn: {
     flex: 1,
@@ -121,5 +175,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
 });
+
 
 AppRegistry.registerComponent('Vinobot', () => Vinobot);
