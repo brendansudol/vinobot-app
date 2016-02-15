@@ -3,8 +3,8 @@
 // sentence 2: [leadin] [flavor], [adjective] [flavor], and [qualifier] [flavor].
 // sentence 3: drink [when_start] through [when_end].
 
-import sample from 'lodash/fp/sample'
-import capitalize from 'lodash/fp/capitalize'
+import sample from 'lodash/fp/sample';
+import capitalize from 'lodash/fp/capitalize';
 
 import {
   first_impression,
@@ -18,15 +18,16 @@ import {
   when_end
 } from './words.js';
 
-function _sentence_1() {
+
+function sentence1() {
   let fi = sample(first_impression);
   let c = sample(conjunction);
   let a = sample(adjective);
 
-  return `${capitalize(fi)} ${c} ${a}.`
+  return `${capitalize(fi)} ${c} ${a}.`;
 }
 
-function _sentence_2() {
+function sentence2() {
   let li = sample(leadin);
   let f1 = sample(flavor);
   let f2 = sample(flavor);
@@ -34,19 +35,16 @@ function _sentence_2() {
   let a = sample(adjective);
   let q = sample(qualifier);
 
-  return `${capitalize(li)} ${f1}, ${a} ${f2}, and ${q} ${f3}.`
+  return `${capitalize(li)} ${f1}, ${a} ${f2}, and ${q} ${f3}.`;
 }
 
-function _sentence_3() {
+function sentence3() {
   let ns = sample(when_start);
   let ne = sample(when_end);
 
-  return `Drink ${ns} through ${ne}.`
+  return `Drink ${ns} through ${ne}.`;
 }
 
-function generate_note() {
-  let note = `${_sentence_1()} ${_sentence_2()} ${_sentence_3()}`
-  console.log(note);
+export default function() {
+  return note = `${sentence1()} ${sentence2()} ${sentence3()}`;
 }
-
-export default generate_note

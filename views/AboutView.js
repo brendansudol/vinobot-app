@@ -28,15 +28,15 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    paddingTop: 90,
+    paddingTop: 80,
     backgroundColor: '#f93c40',
   },
   bigText: {
     marginTop: 0,
-    padding: 10,
+    padding: 20,
     fontSize: 50,
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'left',
   },
 });
 

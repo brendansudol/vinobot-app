@@ -3,6 +3,7 @@
 import React, {
   ActionSheetIOS,
   Component,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -11,20 +12,22 @@ import React, {
 import Speech from 'react-native-speech';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import generate_note from '../util/generator.js';
+import generateNote from '../util/generator.js';
+import randomColor from '../util/colors.js';
+import shadeColor from '../util/shade.js';
 
-
-var SAMPLE = [
-  'Dark and mysterious but big and plump. Resembles a seedless watermelon.',
-  'Clean and morally superior. Spews salt and pineapple.'
-];
 
 class HomeView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: SAMPLE[0],
+      note: '',
+      color: '#f93c40',
     };
+  }
+
+  componentDidMount() {
+    this.setState({note: generateNote()});
   }
 
   onSpeakPress() {
@@ -35,7 +38,10 @@ class HomeView extends Component {
   }
 
   onBtnPress() {
-    this.setState({ note: SAMPLE[1] });
+    this.setState({
+      note: generateNote(),
+      color: randomColor(),
+    });
   }
 
   showShareActionSheet() {
@@ -58,30 +64,37 @@ class HomeView extends Component {
     });
   }
 
-  render() {
+  render({note, color} = this.state) {
+    const colorDark = shadeColor(color, -20);
+
     return (
       <View style={styles.container}>
-        <View style={styles.body}>
+        <ScrollView style={[styles.body, {
+          backgroundColor: color
+        }]}>
           <Text style={styles.bigText}>
-            {this.state.note}
+            {note}
           </Text>
-        </View>
-        <View style={styles.footer}>
+        </ScrollView>
+        <View style={[styles.footer, {
+          backgroundColor: color,
+          borderTopColor: colorDark
+        }]}>
           <TouchableHighlight
             style={styles.btn}
-            underlayColor='#e2070c'
+            underlayColor={null}
             onPress={this.onSpeakPress.bind(this)}>
             <Icon style={styles.btnInner} name="play" size={40} />
           </TouchableHighlight>
           <TouchableHighlight
             style={styles.btn}
-            underlayColor='#e2070c'
+            underlayColor={null}
             onPress={this.showShareActionSheet.bind(this)}>
             <Icon style={styles.btnInner} name="share-apple" size={40} />
           </TouchableHighlight>
           <TouchableHighlight
             style={styles.btn}
-            underlayColor='#e2070c'
+            underlayColor={null}
             onPress={this.onBtnPress.bind(this)}>
             <Icon style={styles.btnInner} name="refresh" size={40} />
           </TouchableHighlight>
@@ -98,22 +111,22 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    paddingTop: 90,
+    paddingTop: 10,
     backgroundColor: '#f93c40',
   },
   bigText: {
     marginTop: 0,
-    padding: 10,
-    fontSize: 50,
+    padding: 20,
+    fontSize: 44,
     color: '#fff',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f93c40',
     borderTopWidth: 1,
-    borderTopColor: '#e2070c',
+    borderTopColor: '#fff',
   },
   btn: {
     flex: 1,
@@ -122,12 +135,6 @@ const styles = StyleSheet.create({
   btnInner: {
     color: '#fff',
     alignSelf: 'center',
-  },
-  btnLeft: {
-    alignSelf: 'flex-start',
-  },
-  btnRight: {
-    alignSelf: 'flex-end',
   },
 });
 
