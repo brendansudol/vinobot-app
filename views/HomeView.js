@@ -34,6 +34,9 @@ class HomeView extends Component {
     Speech.speak({
       text: this.state.note,
       voice: 'en-US'
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 
