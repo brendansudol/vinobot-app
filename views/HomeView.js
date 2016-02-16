@@ -12,9 +12,9 @@ import React, {
 import Speech from 'react-native-speech';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-import generateNote from '../util/generator.js';
-import randomColor from '../util/colors.js';
-import shadeColor from '../util/shade.js';
+import { colors, shade } from '../util/colors.js';
+import { sample } from '../util/helpers.js';
+import wineNote from '../util/wine-note.js';
 
 
 class HomeView extends Component {
@@ -27,7 +27,7 @@ class HomeView extends Component {
   }
 
   componentDidMount() {
-    this.setState({note: generateNote()});
+    this.setState({note: wineNote()});
   }
 
   onSpeakPress() {
@@ -38,9 +38,12 @@ class HomeView extends Component {
   }
 
   onBtnPress() {
+    let oldColor = this.state.color,
+        newColor = sample(colors, oldColor); 
+
     this.setState({
-      note: generateNote(),
-      color: randomColor(),
+      note: wineNote(),
+      color: newColor,
     });
   }
 
@@ -65,8 +68,6 @@ class HomeView extends Component {
   }
 
   render({note, color} = this.state) {
-    const colorDark = shadeColor(color, -20);
-
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.body, {
@@ -78,7 +79,7 @@ class HomeView extends Component {
         </ScrollView>
         <View style={[styles.footer, {
           backgroundColor: color,
-          borderTopColor: colorDark
+          borderTopColor: shade(color, -15)
         }]}>
           <TouchableHighlight
             style={styles.btn}
@@ -111,13 +112,12 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    paddingTop: 10,
     backgroundColor: '#f93c40',
   },
   bigText: {
     marginTop: 0,
     padding: 20,
-    fontSize: 44,
+    fontSize: 36,
     color: '#fff',
     textAlign: 'left',
   },

@@ -3,8 +3,7 @@
 // sentence 2: [leadin] [flavor], [adjective] [flavor], and [qualifier] [flavor].
 // sentence 3: drink [when_start] through [when_end].
 
-import sample from 'lodash/fp/sample';
-import capitalize from 'lodash/fp/capitalize';
+import { sample, capitalize } from './helpers.js';
 
 import {
   first_impression,
