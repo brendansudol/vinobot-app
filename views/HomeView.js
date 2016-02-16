@@ -22,7 +22,7 @@ class HomeView extends Component {
     super(props);
     this.state = {
       note: '',
-      color: '#f93c40',
+      color: '#F44336',
     };
   }
 
@@ -82,7 +82,7 @@ class HomeView extends Component {
         </ScrollView>
         <View style={[styles.footer, {
           backgroundColor: color,
-          borderTopColor: shade(color, -15)
+          borderTopColor: shade(color, 10)
         }]}>
           <TouchableHighlight
             style={styles.btn}
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: '#f93c40',
   },
   bigText: {
     marginTop: 0,
@@ -127,9 +126,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f93c40',
-    borderTopWidth: 1,
-    borderTopColor: '#fff',
+    borderTopWidth: 2,
   },
   btn: {
     flex: 1,

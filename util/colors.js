@@ -1,14 +1,13 @@
 export const colors = [
-  '#0080ff',
-  '#ffbf00',
-  '#01df3a',
-  '#ff0080',
-  '#9966ff',
-  '#ff0033',
-  '#9b59b6',
-  '#2ecc71',
-  '#34495e',
-  '#1abc9c',
+  '#F44336', // red
+  '#E91E63', // pink
+  '#9C27B0', // purple
+  '#673AB7', // deep purple
+  '#3F51B5', // indigo
+  '#2196F3', // blue
+  '#009688', // teal
+  '#FF5722', // deep orange
+  '#607D8B', // blue grey
 ];
 
 export function shade(color, percent) {
