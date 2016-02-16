@@ -52,9 +52,9 @@ class HomeView extends Component {
 
   showShareActionSheet() {
     ActionSheetIOS.showShareActionSheetWithOptions({
-      url: 'http://www.brendansudol.com',
+      url: 'http://vinobot.co',
       message: this.state.note,
-      subject: 'a subject to go in the email heading'
+      subject: 'Wine tasting notes, courtesy of Vinobot'
     },
     (error) => {
       console.error(error);
