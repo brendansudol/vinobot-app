@@ -9,13 +9,12 @@ import {
   first_impression,
   conjunction,
   adjective,
-  varietal,
   leadin,
   flavor,
   qualifier,
   when_start,
   when_end
-} from './words.js';
+} from './wine-words.js';
 
 
 function sentence1() {
