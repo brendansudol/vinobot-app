@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bigText: {
-    marginTop: 0,
     padding: 20,
     fontSize: 36,
     color: '#fff',

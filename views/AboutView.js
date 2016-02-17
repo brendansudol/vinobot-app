@@ -2,6 +2,7 @@
 
 import React, {
   Component,
+  ScrollView,
   StyleSheet,
   Text,
   View
@@ -10,31 +11,23 @@ import React, {
 class AboutView extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.body}>
-          <Text style={styles.bigText}>
-            FILL IN
-          </Text>
-        </View>
-      </View>
+      <ScrollView style={styles.body}>
+        <Text style={styles.bigText}>
+          FILL IN
+        </Text>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-  },
   body: {
     flex: 1,
-    paddingTop: 80,
-    backgroundColor: '#f93c40',
+    backgroundColor: '#F44336',
   },
   bigText: {
-    marginTop: 0,
     padding: 20,
-    fontSize: 50,
+    fontSize: 36,
     color: '#fff',
     textAlign: 'left',
   },
