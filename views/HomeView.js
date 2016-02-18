@@ -3,6 +3,7 @@
 import React, {
   ActionSheetIOS,
   Component,
+  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -16,6 +17,8 @@ import { colors, shade } from '../util/colors.js';
 import { sample } from '../util/helpers.js';
 import wineNote from '../util/wine-note.js';
 
+const { width, height } = Dimensions.get('window');
+const fontSize = height > 600 ? 36 : 28;
 
 class HomeView extends Component {
   constructor(props) {
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
   },
   bigText: {
     padding: 20,
-    fontSize: 36,
+    fontSize: fontSize,
     color: '#fff',
     textAlign: 'left',
   },
