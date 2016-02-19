@@ -13,16 +13,16 @@ class AboutView extends Component {
     return (
       <ScrollView style={styles.body}>
         <Text style={[styles.text, {fontSize: 30}]}>
-          Vinobot is a tipsy little robot that generates ridiculous 
-          wine tasting notes.
+          Vinobot is a slightly tipsy little robot that 
+          generates ridiculous wine tasting notes.
         </Text>
         <Text style={[styles.text, {fontSize: 22}]}>
-          Has a waiter ever poured you a glass of wine and then 
-          waited to hear your thoughts about it? Now you'll be ready. 
-          And Vinobot can even read the note aloud for you if you'd like.*
+          Has a waiter ever poured you a glass of wine and then waited 
+          for your impressions? Well, now you'll be ready. 
+          And if you'd like, Vinobot can read the note aloud for you.*
         </Text>
-        <Text style={[styles.text, {fontSize: 14}]}>
-          * Make sure your phone is not on "silent mode".
+        <Text style={[styles.text, {fontSize: 12}]}>
+          * Make sure your phone is not on "silent mode"
         </Text>
       </ScrollView>
     );
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F51B5',
   },
   text: {
-    marginBottom: 25,
+    marginBottom: 30,
     color: '#fff',
     textAlign: 'left',
   }
