@@ -1,14 +1,38 @@
 {
-  "name": "Vinobot",
-  "version": "0.0.1",
+  "name": "vinobot",
+  "version": "1.1.1",
   "private": true,
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle": "node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle"
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "lint": "eslint .",
+    "prettier":
+      "prettier --single-quote --trailing-comma none --semi false --write \"{,!(node_modules)/**/}*.js\""
+  },
+  "jest": {
+    "preset": "jest-expo"
   },
   "dependencies": {
-    "react-native": "^0.19.0",
-    "react-native-speech": "^0.1.2",
-    "react-native-vector-icons": "^1.1.1"
+    "@expo/vector-icons": "^6.2.2",
+    "expo": "^23.0.4",
+    "react": "16.0.0",
+    "react-native": "0.50.3",
+    "react-navigation": "^1.0.0-beta.26"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "jest-expo": "23.0.0",
+    "prettier": "^1.9.2",
+    "react-native-scripts": "1.8.1",
+    "react-test-renderer": "16.0.0"
   }
 }

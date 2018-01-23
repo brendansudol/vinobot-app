@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Vinobot",
+    "description":
+      "Vinobot is a slightly tipsy little robot that generates ridiculous wine tasting notes.",
+    "icon": "./assets/icon.png",
+    "primaryColor": "#6b41ff",
+    "slug": "vinobot",
+    "sdkVersion": "23.0.0",
+    "privacy": "public",
+    "version": "1.1.1",
+    "githubUrl": "https://github.com/brendansudol/vinobot",
+    "orientation": "portrait",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#6b41ff",
+      "hideExponentText": true
+    },
+    "ios": {
+      "bundleIdentifier": "com.brendansudol.Vinobot",
+      "buildNumber": "1.1.1"
+    },
+    "android": {
+      "package": "com.brendansudol.Vinobot",
+      "versionCode": 1,
+      "icon": "./assets/icon-android.png"
+    }
+  }
+}

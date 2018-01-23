@@ -1,12 +1,12 @@
-export function sample(items, not) {
-  var array = not === undefined ? items : items.filter(a => a !== not),
-      length = array.length;
+export const sample = (items, not) => {
+  const arr = !not ? items : items.filter(x => x !== not)
+  const n = arr.length
 
-  return length > 0 ? array[Math.floor(Math.random() * length)] : undefined;
+  if (!n) return null
+  return arr[Math.floor(Math.random() * n)]
 }
 
-export function capitalize(string) {
-  if (typeof string !== 'string') return string;
-
-  return string.charAt(0).toUpperCase() + string.slice(1);
+export const capitalize = text => {
+  if (typeof text !== 'string') return text
+  return text.charAt(0).toUpperCase() + text.slice(1)
 }
