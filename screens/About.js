@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: height < 600 ? 20 : 22,
+    fontSize: height < 600 ? 20 : 24,
     fontWeight: '500',
     marginBottom: 32,
     textAlign: 'left'
