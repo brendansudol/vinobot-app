@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     flex: 1,
-    padding: 24
+    padding: 16
   },
   btnIcon: {
     alignSelf: 'center',

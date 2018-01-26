@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.brendansudol.Vinobot",
-      "versionCode": 1,
+      "versionCode": 2,
       "icon": "./assets/icon-android.png"
     }
   }

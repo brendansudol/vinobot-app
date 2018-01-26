@@ -18,8 +18,8 @@ const AboutScreen = () => (
         what you think about it? Now you’ll be ready.
       </Text>
       <Text style={styles.text}>
-        Too shy to read it aloud? Vinobot can do it for you—just make sure your
-        phone isn’t on silent mode.
+        Too shy to read it aloud? Vinobot can do it for you, though it has a bit
+        of a computer-y accent.
       </Text>
       <Text style={styles.text}>🍷😜</Text>
     </ScrollView>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: height < 600 ? 20 : 24,
+    fontSize: height < 600 ? 20 : 22,
     fontWeight: '500',
     marginBottom: 32,
     textAlign: 'left'
