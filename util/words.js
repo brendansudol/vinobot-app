@@ -337,6 +337,9 @@ export const whenStart = [
   'now',
   'now',
   'now',
+  'in three days',
+  'in 10 minutes',
+  'last fortnight',
   'tomorrow afternoon',
   'yesterday'
 ]
@@ -356,6 +359,7 @@ export const whenEnd = [
   'graduation',
   'never',
   'next payday',
+  'next full moon',
   'second Tuesday of the month',
   'seventh Saturday of next year',
   'the afterlife'
