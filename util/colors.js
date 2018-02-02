@@ -1,10 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 import { sample } from './helpers'
 
 const colors = [
-  '#EF5350', // red (400)
-  '#F44336', // red (500)
-  '#FF1744', // red (A400)
-  '#2ECC71', // green
+  '#F44336', // red
   '#673AB7', // deep purple
   '#3F51B5', // indigo
   '#2196F3', // blue

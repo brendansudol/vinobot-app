@@ -9,6 +9,7 @@
 
     "arrow-parens": "off",
     "comma-dangle": "off",
+    "global-require": "off",
     "object-curly-newline": "off",
 
     "jsx-a11y/accessible-emoji": 0,

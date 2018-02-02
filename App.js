@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { AppLoading, Font } from 'expo'
-import { EvilIcons } from '@expo/vector-icons'
+import { AppLoading, Asset, Font } from 'expo'
+import { Entypo } from '@expo/vector-icons'
 
 import Root from './navigation/Root'
 
@@ -9,10 +9,13 @@ class App extends Component {
 
   // eslint-disable-next-line class-methods-use-this
   async cacheResources() {
-    const fonts = [EvilIcons.font]
+    const imgs = [require('./assets/logo.png')]
+    const cacheImgs = imgs.map(img => Asset.fromModule(img).downloadAsync())
+
+    const fonts = [Entypo.font]
     const cacheFonts = fonts.map(font => Font.loadAsync(font))
 
-    await Promise.all(cacheFonts)
+    await Promise.all([...cacheImgs, ...cacheFonts])
   }
 
   render() {

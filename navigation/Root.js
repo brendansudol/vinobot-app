@@ -1,12 +1,12 @@
 import React from 'react'
-import { Button, StatusBar, View } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
 import AboutScreen from '../screens/About'
 import HomeScreen from '../screens/Home'
 
 const navOptions = {
-  headerStyle: { padding: 8 },
+  headerStyle: { padding: 4 },
   headerTitleStyle: { fontSize: 22, fontWeight: 'bold' }
 }
 
@@ -15,23 +15,23 @@ AboutScreen.navigationOptions = {
   ...navOptions
 }
 
-HomeScreen.navigationOptions = ({ navigation }) => ({
+HomeScreen.navigationOptions = {
+  header: null,
   title: 'Vinobot',
-  headerBackTitle: 'Back',
-  headerRight: (
-    <Button title="About" onPress={() => navigation.navigate('About')} />
-  ),
-  ...navOptions
-})
+  headerBackTitle: 'Back'
+}
 
-const Main = StackNavigator({
-  Home: { screen: HomeScreen },
-  About: { screen: AboutScreen }
-})
+const Main = StackNavigator(
+  {
+    Home: { screen: HomeScreen },
+    About: { screen: AboutScreen }
+  },
+  { headerMode: 'screen' }
+)
 
 const Root = () => (
   <View style={{ flex: 1 }}>
-    <StatusBar barStyle="dark-content" />
+    <StatusBar barStyle="dark-content" hidden />
     <Main />
   </View>
 )

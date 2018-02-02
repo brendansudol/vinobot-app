@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   Dimensions,
+  Image,
   Platform,
   ScrollView,
   Share,
@@ -10,14 +11,12 @@ import {
   View
 } from 'react-native'
 import { Speech } from 'expo'
-import { EvilIcons as Icon } from '@expo/vector-icons'
+import { Entypo as Icon } from '@expo/vector-icons'
 
 import { getRandomColor } from '../util/colors'
 import generateNote from '../util/note'
 
-const { height } = Dimensions.get('window')
-
-const Btn = ({ action, icon, text, size = 40 }) => (
+const Btn = ({ action, icon, text, size = 28 }) => (
   <TouchableHighlight style={styles.btn} underlayColor={null} onPress={action}>
     <View>
       <Icon style={styles.btnIcon} name={icon} size={size} />
@@ -36,6 +35,11 @@ class HomeScreen extends Component {
     }
   }
 
+  goToAbout = () => {
+    const { navigation } = this.props
+    navigation.navigate('About')
+  }
+
   handleRefresh = () => {
     this.setState(prev => ({
       color: getRandomColor(prev.color),
@@ -46,7 +50,7 @@ class HomeScreen extends Component {
   handleShare = () => {
     const { note } = this.state
 
-    Share.share({ message: note }, { dialogTitle: 'Share wine tasting note' })
+    Share.share({ message: note }, { dialogTitle: 'Share wine note' })
       .then(result => console.log(`Share complete: ${JSON.stringify(result)}`))
       .catch(err => console.log(`Share error: ${JSON.stringify(err)}`))
   }
@@ -70,27 +74,30 @@ class HomeScreen extends Component {
     const { color, note, speaking } = this.state
 
     return (
-      <View style={styles.container}>
-        <ScrollView style={[styles.body, { backgroundColor: color }]}>
+      <View style={[styles.container, { backgroundColor: color }]}>
+        <ScrollView style={[styles.body, {}]}>
+          <Image source={require('../assets/logo.png')} style={styles.logo} />
           <Text style={styles.bigText}>{note}</Text>
         </ScrollView>
-        <View style={[styles.footer, { backgroundColor: color }]}>
+        <View style={[styles.footer, {}]}>
+          <Btn action={this.goToAbout} icon="emoji-happy" text="about" />
           <Btn
             action={this.handleSpeak}
-            icon="play"
-            text={speaking ? 'Playing...' : 'Play'}
+            icon="megaphone"
+            text={speaking ? 'playing...' : 'play'}
           />
-          <Btn action={this.handleShare} icon="share-apple" text="Share" />
-          <Btn action={this.handleRefresh} icon="refresh" text="Refresh" />
+          <Btn action={this.handleShare} icon="share" text="share" />
+          <Btn action={this.handleRefresh} icon="cycle" text="refresh" />
         </View>
       </View>
     )
   }
 }
 
+const { height } = Dimensions.get('window')
 const fontSize = height < 600 ? 32 : 36
-const lineHeight = height < 600 ? 40 : 42
-const fontFamily = Platform.OS === 'ios' ? 'System' : 'Roboto'
+const lineHeight = height < 600 ? 45 : 46
+const fontFamily = Platform.OS === 'ios' ? 'Helvetica Neue' : 'Roboto'
 const fontWeight = Platform.OS === 'ios' ? '600' : '500'
 
 const styles = StyleSheet.create({
@@ -99,7 +106,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   body: {
-    flex: 1
+    flex: 1,
+    padding: 28
+  },
+  logo: {
+    marginBottom: 20,
+    width: 20,
+    height: 40
   },
   bigText: {
     color: '#fff',
@@ -107,7 +120,6 @@ const styles = StyleSheet.create({
     fontSize,
     fontWeight,
     lineHeight,
-    padding: 24,
     textAlign: 'left'
   },
   footer: {

@@ -1,7 +1,12 @@
 import React from 'react'
-import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
-
-const { height } = Dimensions.get('window')
+import {
+  Dimensions,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native'
 
 const AboutScreen = () => (
   <View style={{ flex: 1 }}>
@@ -26,6 +31,10 @@ const AboutScreen = () => (
   </View>
 )
 
+const { height } = Dimensions.get('window')
+const fontSize = height < 600 ? 20 : 24
+const fontFamily = Platform.OS === 'ios' ? 'Helvetica Neue' : 'Roboto'
+
 const styles = StyleSheet.create({
   body: {
     backgroundColor: '#3F51B5',
@@ -36,7 +45,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: height < 600 ? 20 : 24,
+    fontFamily,
+    fontSize,
     fontWeight: '500',
     marginBottom: 32,
     textAlign: 'left'
