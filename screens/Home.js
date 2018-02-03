@@ -75,11 +75,11 @@ class HomeScreen extends Component {
 
     return (
       <View style={[styles.container, { backgroundColor: color }]}>
-        <ScrollView style={[styles.body, {}]}>
+        <ScrollView style={styles.body}>
           <Image source={require('../assets/logo.png')} style={styles.logo} />
           <Text style={styles.bigText}>{note}</Text>
         </ScrollView>
-        <View style={[styles.footer, {}]}>
+        <View style={styles.footer}>
           <Btn action={this.goToAbout} icon="emoji-happy" text="about" />
           <Btn
             action={this.handleSpeak}
@@ -95,10 +95,17 @@ class HomeScreen extends Component {
 }
 
 const { height } = Dimensions.get('window')
-const fontSize = height < 600 ? 32 : 36
-const lineHeight = height < 600 ? 45 : 46
-const fontFamily = Platform.OS === 'ios' ? 'Helvetica Neue' : 'Roboto'
-const fontWeight = Platform.OS === 'ios' ? '600' : '500'
+const isIos = Platform.OS === 'ios'
+const responsiveStyles = h => {
+  let [bodyP, imgMb, fs] = [20, 12, 28]
+  if (h > 600) [bodyP, imgMb, fs] = [24, 14, 34]
+  if (h > 700) [bodyP, imgMb, fs] = [30, 18, 37]
+  return { bodyP, imgMb, fs }
+}
+
+const { bodyP, imgMb, fs: fontSize } = responsiveStyles(height)
+const lineHeight = parseInt(fontSize * 1.33, 10) + (isIos ? 0 : 6)
+const [fontFamily, fontWeight] = isIos ? ['System', '700'] : ['Roboto', '500']
 
 const styles = StyleSheet.create({
   container: {
@@ -107,10 +114,10 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    padding: 28
+    padding: bodyP
   },
   logo: {
-    marginBottom: 20,
+    marginBottom: imgMb,
     width: 20,
     height: 40
   },

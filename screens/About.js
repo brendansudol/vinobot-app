@@ -32,8 +32,7 @@ const AboutScreen = () => (
 )
 
 const { height } = Dimensions.get('window')
-const fontSize = height < 600 ? 20 : 24
-const fontFamily = Platform.OS === 'ios' ? 'Helvetica Neue' : 'Roboto'
+const isIos = Platform.OS === 'ios'
 
 const styles = StyleSheet.create({
   body: {
@@ -45,8 +44,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontFamily,
-    fontSize,
+    fontFamily: isIos ? 'System' : 'Roboto',
+    fontSize: height < 600 ? 20 : 24,
     fontWeight: '500',
     marginBottom: 32,
     textAlign: 'left'
