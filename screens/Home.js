@@ -97,9 +97,9 @@ class HomeScreen extends Component {
 const { height } = Dimensions.get('window')
 const isIos = Platform.OS === 'ios'
 const responsiveStyles = h => {
-  let [bodyP, imgMb, fs] = [20, 12, 28]
-  if (h > 600) [bodyP, imgMb, fs] = [24, 14, 34]
-  if (h > 700) [bodyP, imgMb, fs] = [30, 18, 37]
+  let [bodyP, imgMb, fs] = [24, 12, 28]
+  if (h > 600) [bodyP, imgMb, fs] = [26, 14, 34]
+  if (h > 700) [bodyP, imgMb, fs] = [30, 16, 37]
   return { bodyP, imgMb, fs }
 }
 

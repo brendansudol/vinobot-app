@@ -8,7 +8,7 @@
     "slug": "vinobot",
     "sdkVersion": "23.0.0",
     "privacy": "public",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "githubUrl": "https://github.com/brendansudol/vinobot-app",
     "orientation": "portrait",
     "splash": {
@@ -17,11 +17,11 @@
     },
     "ios": {
       "bundleIdentifier": "com.brendansudol.Vinobot",
-      "buildNumber": "1.1.3"
+      "buildNumber": "1.1.4"
     },
     "android": {
       "package": "com.brendansudol.Vinobot",
-      "versionCode": 5,
+      "versionCode": 6,
       "icon": "./assets/icon-android.png"
     }
   }
