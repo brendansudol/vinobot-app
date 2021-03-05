@@ -1,10 +1,4 @@
-// Formula:
-// sentence 1: [firstImpression] [conjunction] [adjective].
-// sentence 2: [leadin] [flavor], [adjective] [flavor], and [qualifier] [flavor].
-// sentence 3: drink [whenStart] through [whenEnd].
-
-import { sample, capitalize } from './helpers'
-
+import { sample } from "./sample"
 import {
   firstImpression,
   conjunction,
@@ -13,8 +7,18 @@ import {
   flavor,
   qualifier,
   whenStart,
-  whenEnd
-} from './words'
+  whenEnd,
+} from "./words"
+
+// Structure:
+// sentence 1: [firstImpression] [conjunction] [adjective].
+// sentence 2: [leadin] [flavor], [adjective] [flavor], and [qualifier] [flavor].
+// sentence 3: drink [whenStart] through [whenEnd].
+
+const capitalize = (text) => {
+  if (typeof text !== "string") return text
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
 
 const sentence1 = () => {
   const fi = sample(firstImpression)
@@ -42,6 +46,6 @@ const sentence3 = () => {
   return `Drink ${ns} through ${ne}.`
 }
 
-const generateNote = () => `${sentence1()} ${sentence2()} ${sentence3()}`
-
-export default generateNote
+export function generateNote() {
+  return `${sentence1()} ${sentence2()} ${sentence3()}`
+}

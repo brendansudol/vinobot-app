@@ -1,28 +1,35 @@
 {
   "expo": {
     "name": "Vinobot",
-    "description":
-      "Vinobot is a slightly tipsy little robot that generates ridiculous wine tasting notes.",
-    "icon": "./assets/icon.png",
-    "primaryColor": "#6B42FF",
+    "description": "Vinobot is a slightly tipsy little robot that generates ridiculous wine tasting notes.",
     "slug": "vinobot",
-    "sdkVersion": "23.0.0",
-    "privacy": "public",
-    "version": "1.1.4",
-    "githubUrl": "https://github.com/brendansudol/vinobot-app",
+    "version": "1.2.0",
+    "sdkVersion": "40.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "primaryColor": "#6b42ff",
+    "privacy": "public",
+    "githubUrl": "https://github.com/brendansudol/vinobot-app",
     "splash": {
       "image": "./assets/splash-white.png",
-      "hideExponentText": true
+      "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.brendansudol.Vinobot",
-      "buildNumber": "1.1.4"
+      "buildNumber": "1.2.0"
     },
     "android": {
       "package": "com.brendansudol.Vinobot",
-      "versionCode": 6,
-      "icon": "./assets/icon-android.png"
+      "versionCode": 7,
+      "icon": "./assets/icon-android.png",
+      "permissions": []
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     }
   }
 }

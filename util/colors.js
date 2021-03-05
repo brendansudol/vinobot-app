@@ -1,13 +1,12 @@
-/* eslint-disable import/prefer-default-export */
-import { sample } from './helpers'
+import { sample } from "./sample"
 
-const colors = [
-  '#F44336', // red
-  '#673AB7', // deep purple
-  '#3F51B5', // indigo
-  '#2196F3', // blue
-  '#009688', // teal
-  '#607D8B' // blue grey
+const COLORS = [
+  "#f44336", // red
+  "#673ab7", // deep purple
+  "#3f51b5", // indigo
+  "#2196f3", // blue
+  "#009688", // teal
+  "#607d8b", // blue grey
 ]
 
-export const getRandomColor = not => sample(colors, not)
+export const getRandomColor = (not) => sample(COLORS, not)
