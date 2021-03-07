@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "#fff",
     fontFamily: "UbuntuMono",
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 10,
   },
 })
